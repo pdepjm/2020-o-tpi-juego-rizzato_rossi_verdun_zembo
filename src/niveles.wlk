@@ -1,24 +1,27 @@
 import wollok.game.*
-import campeones.*
 import enemigos.*
+import jugador.*
 import configTeclas.*
 
 class Nivel {
-	game.boardGround("fondo.jpg")
-	
-	method cargar(){
+	var siguienteNivel
 		
-		game.addVisualCharacter(Jugador)	
-		game.onTick(2000,"moverse",{enemigo1.moverse()}) //asi con todos los enemigos del nivel
-		
-		// el cargar el siguiente nivel que lo tenga el enemigo de ese lvl
-	}
+	method iniciar(){}
 	
 	
 }
 
 
 object nivel1 inherits Nivel{
+		
+	override method iniciar(){
+		game.clear()
+		game.addVisual(enemigo1)
+		game.onTick(2000,"moverse",{enemigo1.moverse()})
+		game.addVisualCharacter(jugador)
+		config.configColisiones()
+		
+	}
+	
 }
-object nivel2 inherits Nivel{}
-object nivel3 inherits Nivel{}
+

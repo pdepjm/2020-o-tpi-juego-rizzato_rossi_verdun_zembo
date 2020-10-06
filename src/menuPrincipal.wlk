@@ -2,39 +2,24 @@ import wollok.game.*
 import niveles.*
 
 object menu {
-	var campeonJugador	
-	
+		
 	method pantallaDeInicio(){
 		
-		game.title("sobrevibiendo al conurbano")
+		game.title("escapar de lationoamerica: the game")
 		game.width(30)
-		game.height(30)
-		game.addVisual("foto del menu")
+		game.height(10)
+		//game.addVisual("foto del menu")
 		
 		//COMENZAR JUEGO
-		keyboard.c().onPressDo{self.champSelect()}
+		keyboard.c().onPressDo{nivel1.iniciar()} //no cierra con f y no mueve el jugador
+		
+		
 		
 		//SALIR DEL JUEGO
-		keyboard.f().onPressDo{game.stop()}
+		keyboard.f().onPressDo{game.stop()} //anda 
 		
 		
 	}
-	
-	method champSelect(){
-		game.clear() //limpio lo del menu principal
-		game.boardGround("foto de los campeones")
-		keyboard.a().onPressDo{self.elegir(champ1)}
-		keyboard.s().onPressDo{self.elegir(champ2)}
-		keyboard.d().onPressDo{self.elegir(champ3)}
-		
-	}
-	
-	method elegir(champ){
-		campeonJugador = champ
-		nivel1.cargar() // en teoria deberia cargar el nivel 1
-		
-	}
-	
 	
 }
 

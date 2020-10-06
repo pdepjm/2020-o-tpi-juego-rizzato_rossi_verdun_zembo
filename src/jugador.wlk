@@ -2,20 +2,17 @@ import wollok.game.*
 import puertas.*
 
 object jugador {
-	const posicionInicial = game.at(25,10)
-	var property posicion
 	
-	method posicion()
+	var property position = game.origin() //sin property no se mueve
+	
+	method position() = position
 
-	method image() {
-		return  if(self.choco()){ "pj gris.png"}  else "pj.png" 	
-	}
+	method image() = "pepita.png"
 	
 	method choco(){ //choca con el enemigo
-		if
 	}
 	
-	method chocarPuerta(){
+	/*method chocarPuerta(){
 		if(self.posicion() == puerta.posicion()){
 		game.sound("sonido victoria")
 		posicion = posicionInicial // lo muevo a donde empezo
@@ -23,7 +20,7 @@ object jugador {
 		
 		}
 
-	}
+	}*/
 	
 	
 	
