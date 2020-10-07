@@ -1,20 +1,26 @@
 import wollok.game.*
 import jugador.*
 
-object puerta {
-	var siguienteNivel 
-	var posicion
+class Puerta {
+	//var siguienteNivel 
+	var property position
 	
-	method posicion() = posicion
+	method image() = "puerta.png"
 	
-	method siguienteNivel() = siguienteNivel
+	method posicion() = position
+	
+	//method siguienteNivel() = siguienteNivel
 	
 	method pasarNivel(){
-		if(jugador.posicion() == self.posicion()){
-		game.sound(algun ruidito copado)
+		if(jugador.position() == self.posicion()){
+		//game.sound(algun ruidito copado)
 		game.clear()
-		self.siguienteNivel().iniciar()
+		//self.siguienteNivel().iniciar()
 		}
 	}
 	
 }
+
+const puerta1 = new Puerta(
+	position = game.at(10,5)
+)
