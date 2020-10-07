@@ -8,7 +8,7 @@ object menu {
 		game.title("escapar de lationoamerica: the game")
 		game.width(30)
 		game.height(10)
-		//game.addVisual("foto del menu")
+		//game.boardGround("menuPrincipal.png")
 		
 		//COMENZAR JUEGO
 		keyboard.c().onPressDo{nivel1.iniciar()} //no cierra con f y no mueve el jugador

@@ -7,7 +7,7 @@ class EnemigoHorizontal {
 	var property position = game.at(5,5)
 	var contadorPosicion = 0 //no la pongo adentro del metodo pq sino cada vez que lo llamo arranca en 0
 			
-	method image() = "jugador.png"
+	method image() = "enemigo.png"
 	
 	//method chocarJugador(){
 		//game.sound("oof.wav")
@@ -45,7 +45,7 @@ class EnemigoVertical {
 	var property position = game.at(5,5)
 	var contadorPosicion = 0 //no la pongo adentro del metodo pq sino cada vez que lo llamo arranca en 0
 			
-	method image() = "jugador.png"
+	method image() = "enemigo.png"
 	
 	//method chocarJugador(){
 		//game.sound("oof.wav")
@@ -78,11 +78,11 @@ class EnemigoVertical {
 	
 }
 
-var enemigo1 = new EnemigoHorizontal(
-	position = game.at(6,7)
+//var enemigo1 = new EnemigoHorizontal(
+	//position = game.at(6,7)
 
 	
-)
+//)
 	
 	
 

@@ -7,7 +7,7 @@ object jugador {
 	
 	method position() = position
 
-	method image() = "pepita.png"
+	method image() = "jugador.png"
 	
 	method choco(){ //choca con el enemigo
 	}

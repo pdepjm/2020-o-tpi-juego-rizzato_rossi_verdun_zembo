@@ -4,8 +4,12 @@ import jugador.*
 import enemigos.*
 
 object config{
-	method configColisiones(){
+	method configColisionesEnemigos(){
 	game.onCollideDo(jugador, {enemigo => enemigo.chocarJugador()})
-	game.onCollideDo(jugador, {puerta => puerta.pasarDeNivel()})
+	
+	
+	}
+	method configColisionesPuerta(){
+    game.onCollideDo(jugador, {puerta => puerta.pasarNivel()})
 	}
 }

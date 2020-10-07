@@ -14,6 +14,7 @@ class Puerta {
 	method pasarNivel(){
 		if(jugador.position() == self.posicion()){
 		//game.sound(algun ruidito copado)
+		game.say(self,"Gane breoh")
 		game.clear()
 		//self.siguienteNivel().iniciar()
 		}
@@ -21,6 +22,3 @@ class Puerta {
 	
 }
 
-const puerta1 = new Puerta(
-	position = game.at(10,5)
-)
