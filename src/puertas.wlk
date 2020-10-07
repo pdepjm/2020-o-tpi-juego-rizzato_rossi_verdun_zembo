@@ -14,7 +14,7 @@ class Puerta {
 	method pasarNivel(){
 		if(jugador.position() == self.posicion()){
 		//game.sound(algun ruidito copado)
-		game.say(self,"Gane breoh")
+		game.say(self,"Ganaste breoh")
 		game.clear()
 		//self.siguienteNivel().iniciar()
 		}

@@ -6,7 +6,7 @@ class EnemigoHorizontal {
 	//que cuando lo toque haga el oof de roblox y pierda
 	var property position = game.at(5,5)
 	var contadorPosicion = 0 //no la pongo adentro del metodo pq sino cada vez que lo llamo arranca en 0
-			
+	var limite 
 	method image() = "enemigo.png"
 	
 	//method chocarJugador(){
@@ -15,7 +15,7 @@ class EnemigoHorizontal {
 		//game.schedule(2000,{game.stop()}) //si choca se cierra el juego a los 2 segundos
 	
 	method moverse(){// anda
-		if(contadorPosicion <= 10){
+		if(contadorPosicion <= limite){
 		position = self.position().right(1) // se mueve a la derecha una posicion
 		contadorPosicion += 1
 
@@ -23,7 +23,7 @@ class EnemigoHorizontal {
 		else{
 			position = self.position().left(1)	
 			contadorPosicion += 1
-			if(contadorPosicion == 20){
+			if(contadorPosicion == (limite*2)+2){
 				contadorPosicion = 0
 			}
 				
@@ -44,7 +44,7 @@ class EnemigoVertical {
 	//que cuando lo toque haga el oof de roblox y pierda
 	var property position = game.at(5,5)
 	var contadorPosicion = 0 //no la pongo adentro del metodo pq sino cada vez que lo llamo arranca en 0
-			
+	var limite
 	method image() = "enemigo.png"
 	
 	//method chocarJugador(){
@@ -53,7 +53,7 @@ class EnemigoVertical {
 		//game.schedule(2000,{game.stop()}) //si choca se cierra el juego a los 2 segundos
 	
 	method moverse(){// anda
-		if(contadorPosicion <= 10){
+		if(contadorPosicion <= limite){
 		position = self.position().up(1) // se mueve a la derecha una posicion
 		contadorPosicion += 1
 
@@ -61,9 +61,10 @@ class EnemigoVertical {
 		else{
 			position = self.position().down(1)	
 			contadorPosicion += 1
-			if(contadorPosicion == 20){
+			if(contadorPosicion == (limite*2)+2){
 				contadorPosicion = 0
 			}
+			
 				
 		}
 	}	
