@@ -36,8 +36,7 @@ object nivel1 inherits Nivel{
 		game.onTick(2000,"moverse",{enemigo1.moverse()})
 		game.onTick(2000,"moverse",{enemigo2.moverse()})
 		game.addVisualCharacter(jugador)
-		config.configColisionesEnemigos()
-		config.configColisionesPuerta()
+		config.configColisiones()
 		
 	}
 	

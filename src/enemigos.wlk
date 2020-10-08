@@ -15,7 +15,7 @@ class EnemigoHorizontal {
 		//game.schedule(2000,{game.stop()}) //si choca se cierra el juego a los 2 segundos
 	
 	method moverse(){// anda
-		if(contadorPosicion <= limite){
+		if(contadorPosicion < limite){
 		position = self.position().right(1) // se mueve a la derecha una posicion
 		contadorPosicion += 1
 
@@ -23,7 +23,7 @@ class EnemigoHorizontal {
 		else{
 			position = self.position().left(1)	
 			contadorPosicion += 1
-			if(contadorPosicion == (limite*2)+2){
+			if(contadorPosicion == (limite*2)){
 				contadorPosicion = 0
 			}
 				
@@ -31,10 +31,10 @@ class EnemigoHorizontal {
 	}	
 	
 	method chocarJugador(){ // anda
-		if(position == jugador.position()){
+		//if(position == jugador.position()){
 			game.say(self,"te encontre")
 			game.schedule(1000,{game.stop()})
-		}
+		//}
 		
 	}		
 	
@@ -53,7 +53,7 @@ class EnemigoVertical {
 		//game.schedule(2000,{game.stop()}) //si choca se cierra el juego a los 2 segundos
 	
 	method moverse(){// anda
-		if(contadorPosicion <= limite){
+		if(contadorPosicion < limite){
 		position = self.position().up(1) // se mueve a la derecha una posicion
 		contadorPosicion += 1
 
@@ -61,7 +61,7 @@ class EnemigoVertical {
 		else{
 			position = self.position().down(1)	
 			contadorPosicion += 1
-			if(contadorPosicion == (limite*2)+2){
+			if(contadorPosicion == (limite*2)){
 				contadorPosicion = 0
 			}
 			
