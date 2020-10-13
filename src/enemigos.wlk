@@ -13,6 +13,8 @@ class EnemigoHorizontal {
 		//game.sound("oof.wav")
 		//game.say(self,"a casa malo")
 		//game.schedule(2000,{game.stop()}) //si choca se cierra el juego a los 2 segundos
+		
+	method esAtravesable() = true
 	
 	method moverse(){// anda
 		if(contadorPosicion < limite){
@@ -51,6 +53,8 @@ class EnemigoVertical {
 		//game.sound("oof.wav")
 		//game.say(self,"a casa malo")
 		//game.schedule(2000,{game.stop()}) //si choca se cierra el juego a los 2 segundos
+	
+	method esAtravesable() = true
 	
 	method moverse(){// anda
 		if(contadorPosicion < limite){

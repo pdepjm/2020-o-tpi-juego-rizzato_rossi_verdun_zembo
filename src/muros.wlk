@@ -16,6 +16,7 @@ class Visuals{
 
 class Solids inherits Visuals {
     var property direccionMov
+    method esAtravesable() = false
 
     override method colision() {
         if(direccionMov == "izquierda") {
@@ -36,7 +37,11 @@ object muro{
     const esqSupDer = new Visuals(image = "muro.png", position = game.at(10,30))
     const esqInfIzq = new Visuals(image = "muro.png", position = game.at(0,0))
     const esqInfDer = new Visuals(image = "muro.png", position = game.at(10,0))
+    
+    
 	method image() = "muro.png"
+	method esAtravesable() = false
+	
 	method generarParedes(){
         //Genero los vertices
         game.addVisual(esqSupIzq)

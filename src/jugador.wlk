@@ -4,12 +4,25 @@ import puertas.*
 object jugador {
 	
 	var property position = game.at(3,3) //sin property no se mueve
-	
-	method position() = position
+	var property direccion
 
 	method image() = "jugador.png"
 	
 	method choco(){ //choca con el enemigo
+	}
+	
+	method puedeMoverse(orientacion){
+		return game.getObjectsIn(orientacion.posicionEnEsaDireccion()).all {unObj => unObj.esAtravesable()}
+	}
+	
+	method mover(posicion , orientacion){
+		if(self.puedeMoverse(orientacion)){
+			position = posicion
+			return position
+			
+		}else {
+			return position			
+		}
 	}
 	
 	/*method chocarPuerta(){
@@ -24,4 +37,20 @@ object jugador {
 	
 	
 	
+}
+
+object arriba {
+  method posicionEnEsaDireccion() = jugador.position().up(1)
+}
+
+object abajo {
+  method posicionEnEsaDireccion() = jugador.position().down(1)
+}
+
+object izquierda {
+  method posicionEnEsaDireccion() = jugador.position().left(1)
+}
+
+object derecha {
+  method posicionEnEsaDireccion() = jugador.position().right(1)
 }

@@ -35,8 +35,9 @@ object nivel1 inherits Nivel{
 		game.addVisual(enemigo2)
 		game.onTick(2000,"moverse",{enemigo1.moverse()})
 		game.onTick(2000,"moverse",{enemigo2.moverse()})
-		game.addVisualCharacter(jugador)
+		game.addVisual(jugador)
 		config.configColisiones()
+		config.teclasJugador()
 		
 	}
 	
