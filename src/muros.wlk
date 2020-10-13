@@ -54,6 +54,8 @@ object muro{
         (1 .. 28).forEach({nro => self.generarLinea("paredInf.png", nro,0, "abajo")})
         (1 .. 28).forEach({nro => self.generarLinea("paredDer.png", 29, nro, "derecha")})
         
+        
+        
     }
 
     method generarLinea(imagen, ancho, alto, avance){
@@ -64,10 +66,23 @@ object muro{
 
 object muroslvl1{
 	method generarParedes(){
-													//		celdaEnLaQueVa 	de donde a donde
+			// Verticales										//		celdaEnLaQueVa 	de donde a donde
         (1..16).forEach({nro => self.generarLinea("muro.png",3,nro,"derecha")})
-        (23..28).forEach({nro => self.generarLinea("muro.png",3,nro,"derecha")})
+        (22..28).forEach({nro => self.generarLinea("muro.png",3,nro,"derecha")})
+        (1 .. 7).forEach({nro => self.generarLinea("muro.png", 7,nro , "derecha")})
+        (13 .. 28).forEach({nro => self.generarLinea("muro.png", 7,nro , "derecha")})
+        (1 .. 21).forEach({nro => self.generarLinea("muro.png", 11,nro , "derecha")})
+        (26 .. 28).forEach({nro => self.generarLinea("muro.png", 11,nro , "derecha")})
+        (1 .. 12).forEach({nro => self.generarLinea("muro.png", 21,nro , "derecha")})
+        (1 .. 22).forEach({nro => self.generarLinea("muro.png", 28,nro , "derecha")})
+            // Horizontales
+        (12..28).forEach({nro => self.generarLinea("muro.png",nro, 28,"arriba")})
+        (12..28).forEach({nro => self.generarLinea("muro.png",nro, 27,"arriba")})
+        (12..28).forEach({nro => self.generarLinea("muro.png",nro, 26,"arriba")})
+        (12..28).forEach({nro => self.generarLinea("muro.png",nro, 28,"arriba")})
+        (12..20).forEach({nro => self.generarLinea("muro.png",nro, 1,"arriba")})
         
+       
     }
 
     method generarLinea(imagen, ancho, alto, avance){

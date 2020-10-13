@@ -3,7 +3,7 @@ import puertas.*
 
 object jugador {
 	
-	var property position = game.at(3,3) //sin property no se mueve
+	var property position = game.at(2,2) //sin property no se mueve
 	var property direccion
 
 	method image() = "jugador.png"
