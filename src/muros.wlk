@@ -33,13 +33,12 @@ class Solids inherits Visuals {
 
 
 object muro{
-	const esqSupIzq = new Visuals(image = "muro.png", position = game.at(0,30))
-    const esqSupDer = new Visuals(image = "muro.png", position = game.at(10,30))
-    const esqInfIzq = new Visuals(image = "muro.png", position = game.at(0,0))
-    const esqInfDer = new Visuals(image = "muro.png", position = game.at(10,0))
+	
+	const esqSupIzq = new Visuals(image = "esquinaSupIzq.png", position = game.at(0,29))
+	const esqSupDer = new Visuals(image = "esquinaSupDer.png", position = game.at(29,29))
+	const esqInfIzq = new Visuals(image = "esquinaInfIzq.png", position = game.at(0,0))
+	const esqInfDer = new Visuals(image = "esquinaInfDer.png", position = game.at(29,0))
     
-    
-	method image() = "muro.png"
 	method esAtravesable() = false
 	
 	method generarParedes(){
@@ -50,14 +49,11 @@ object muro{
         game.addVisual(esqInfDer)
 
         //Genero los lados
-        (1 .. 4).forEach({nro => self.generarLinea("muro.png", nro, 30, "arriba")})
-        (6 .. 9).forEach({nro => self.generarLinea("muro.png", nro, 30, "arriba")})
-        (1 .. 4).forEach({nro => self.generarLinea("muro.png", 0, nro, "izquierda")})
-        (6 .. 9).forEach({nro => self.generarLinea("muro.png", 0, nro, "izquierda")})
-        (1 .. 4).forEach({nro => self.generarLinea("muro.png", nro, 0, "abajo")})
-        (6 .. 9).forEach({nro => self.generarLinea("muro.png", nro, 0, "abajo")})
-        (1 .. 4).forEach({nro => self.generarLinea("muro.png", 30, nro, "derecha")})
-        (6 .. 9).forEach({nro => self.generarLinea("muro.png", 30, nro, "derecha")})
+        (1 .. 28).forEach({nro => self.generarLinea("paredSup.png", nro, 29, "arriba")})
+        (1 .. 28).forEach({nro => self.generarLinea("paredIzq.png", 0, nro, "izquierda")})
+        (1 .. 28).forEach({nro => self.generarLinea("paredInf.png", nro,0, "abajo")})
+        (1 .. 28).forEach({nro => self.generarLinea("paredDer.png", 29, nro, "derecha")})
+        
     }
 
     method generarLinea(imagen, ancho, alto, avance){
@@ -65,5 +61,18 @@ object muro{
         game.addVisualIn(pared,game.at(ancho,alto))
     }
 }
-	
+
+object muroslvl1{
+	method generarParedes(){
+													//		celdaEnLaQueVa 	de donde a donde
+        (1..16).forEach({nro => self.generarLinea("muro.png",3,nro,"derecha")})
+        (23..28).forEach({nro => self.generarLinea("muro.png",3,nro,"derecha")})
+        
+    }
+
+    method generarLinea(imagen, ancho, alto, avance){
+        var pared = new Solids(image = imagen, direccionMov = avance)
+        game.addVisualIn(pared,game.at(ancho,alto))
+    }
+}
 

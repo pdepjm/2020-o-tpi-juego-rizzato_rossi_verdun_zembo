@@ -7,17 +7,17 @@ class Puerta {
 	
 	method image() = "puerta.png"
 	
+	method esAtravesable() = true
+	
 	method posicion() = position
 	
 	//method siguienteNivel() = siguienteNivel
 	
-	method pasarNivel(){
-		if(jugador.position() == self.posicion()){
+	method chocarJugador(){
 		//game.sound(algun ruidito copado)
 		game.say(self,"Ganaste breoh")
 		game.clear()
 		//self.siguienteNivel().iniciar()
-		}
 	}
 	
 }

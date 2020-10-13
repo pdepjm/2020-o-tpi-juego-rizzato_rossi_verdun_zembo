@@ -26,13 +26,14 @@ object nivel1 inherits Nivel{
 	const puerta1 = new Puerta(
 	position = game.at(10,5)
     )
-    
+        
 	override method iniciar(){
 		game.clear()
 		muro.generarParedes()
+		muroslvl1.generarParedes()
 		game.addVisual(puerta1)
-		game.addVisual(enemigo1)
-		game.addVisual(enemigo2)
+		//game.addVisual(enemigo1)
+		//game.addVisual(enemigo2)
 		game.onTick(2000,"moverse",{enemigo1.moverse()})
 		game.onTick(2000,"moverse",{enemigo2.moverse()})
 		game.addVisual(jugador)

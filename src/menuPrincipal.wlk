@@ -7,7 +7,7 @@ object menu {
 		
 		game.title("escapar de lationoamerica: the game")
 		game.width(30)
-		game.height(10)
+		game.height(30)
 		//game.boardGround("menuPrincipal.png")
 		
 		//COMENZAR JUEGO
