@@ -8,6 +8,10 @@ object jugador {
 
 	method image() = "jugador.png"
 	
+	method volverAInicio(){
+		position = game.at(2,2)
+	}
+	
 	method choco(){ //choca con el enemigo
 	}
 	

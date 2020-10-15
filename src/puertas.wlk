@@ -1,5 +1,6 @@
 import wollok.game.*
 import jugador.*
+import niveles.*
 
 class Puerta {
 	//var siguienteNivel 
@@ -17,6 +18,7 @@ class Puerta {
 		//game.sound(algun ruidito copado)
 		game.say(self,"Ganaste breoh")
 		game.clear()
+		nivel2.iniciar()
 		//self.siguienteNivel().iniciar()
 	}
 	
