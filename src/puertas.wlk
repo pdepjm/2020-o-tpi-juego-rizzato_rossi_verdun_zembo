@@ -1,9 +1,10 @@
 import wollok.game.*
 import jugador.*
 import niveles.*
+import pasaporte.*
 
 class Puerta {
-	//var siguienteNivel 
+	var property siguienteNivel 
 	var property position
 	
 	method image() = "puerta.png"
@@ -15,12 +16,15 @@ class Puerta {
 	//method siguienteNivel() = siguienteNivel
 	
 	method chocarJugador(){
-		//game.sound(algun ruidito copado)
+		if(pasaporte.fueEncontrado()){
 		game.say(self,"Ganaste breoh")
 		game.clear()
-		nivel2.iniciar()
-		//self.siguienteNivel().iniciar()
+		self.siguienteNivel().iniciar()
+		
+		}
 	}
 	
 }
+
+
 

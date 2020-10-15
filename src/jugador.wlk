@@ -11,10 +11,7 @@ object jugador {
 	method volverAInicio(){
 		position = game.at(2,2)
 	}
-	
-	method choco(){ //choca con el enemigo
-	}
-	
+
 	method puedeMoverse(orientacion){
 		return game.getObjectsIn(orientacion.posicionEnEsaDireccion()).all {unObj => unObj.esAtravesable()}
 	}
@@ -27,19 +24,7 @@ object jugador {
 		}else {
 			return position			
 		}
-	}
-	
-	/*method chocarPuerta(){
-		if(self.posicion() == puerta.posicion()){
-		game.sound("sonido victoria")
-		posicion = posicionInicial // lo muevo a donde empezo
-		puerta.pasarNivel()
-		
-		}
-
-	}*/
-	
-	
+	}	
 	
 }
 

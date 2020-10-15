@@ -3,14 +3,13 @@ import enemigos.*
 import jugador.*
 import configTeclas.*
 import puertas.*
+import pasaporte.*
 import muros.*
 
 class Nivel {
 	var siguienteNivel
 		
 	method iniciar(){}
-	
-	
 }
 
 
@@ -52,17 +51,13 @@ object nivel1 inherits Nivel{
 		position = game.at(22,4)
 	)
 	
+	const puertaLvl1 = new Puerta(siguienteNivel = nivel2, position = game.at(27,20))
 	
-	
-	const puerta1 = new Puerta(
-	position = game.at(25,2)
-    )
-        
 	override method iniciar(){
 		game.clear()
 		muro.generarParedes()
 		muroslvl1.generarParedes()
-		game.addVisual(puerta1)
+		game.addVisual(puertaLvl1)
 		game.addVisual(enemigo1)
 		game.addVisual(enemigo2)
 		game.addVisual(enemigo3)
@@ -71,6 +66,7 @@ object nivel1 inherits Nivel{
 		game.addVisual(enemigo6)
 		game.addVisual(enemigo7)
 		game.addVisual(enemigo8)
+		game.addVisual(pasaporte)
 		game.onTick(1000,"moverse",{enemigo1.moverse()})
 		game.onTick(1000,"moverse",{enemigo2.moverse()})
 		game.onTick(1000,"moverse",{enemigo3.moverse()})
@@ -139,14 +135,9 @@ object nivel2 inherits Nivel{
 		position = game.at(1,10)
 	)
 	
-	
-	
-	
-	
-	
-	
 	const puerta2 = new Puerta(
-	position = game.at(20,21)
+	position = game.at(20,21),
+	siguienteNivel = nivel3
     )
         
 	override method iniciar(){
@@ -185,3 +176,5 @@ object nivel2 inherits Nivel{
 		
 	}
 }
+
+object nivel3 inherits Nivel{}

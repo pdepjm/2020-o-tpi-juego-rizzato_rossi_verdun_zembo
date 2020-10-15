@@ -5,7 +5,7 @@ import enemigos.*
 
 object config{
 	method configColisiones(){
-	game.onCollideDo(jugador, {enemigo => enemigo.chocarJugador()})
+	game.onCollideDo(jugador, {algo => algo.chocarJugador()})
 	}
 	method teclasJugador(){
   	keyboard.up().onPressDo {jugador.mover(jugador.position().up(1),arriba) }

@@ -4,19 +4,16 @@ import jugador.*
 
 class EnemigoHorizontal {
 	//que cuando lo toque haga el oof de roblox y pierda
-	var property position = game.at(5,5)
+	var property position 
 	var contadorPosicion = 0 //no la pongo adentro del metodo pq sino cada vez que lo llamo arranca en 0
 	var limite 
-	method image() = "enemigo.png"
+	var morir = game.sound("oof.mp3")
 	
-	//method chocarJugador(){
-		//game.sound("oof.wav")
-		//game.say(self,"a casa malo")
-		//game.schedule(2000,{game.stop()}) //si choca se cierra el juego a los 2 segundos
+	method image() = "enemigo.png"
 		
 	method esAtravesable() = true
 	
-	method moverse(){// anda
+	method moverse(){
 		if(contadorPosicion < limite){
 		position = self.position().right(1) // se mueve a la derecha una posicion
 		contadorPosicion += 1
@@ -30,13 +27,12 @@ class EnemigoHorizontal {
 			}
 				
 		}
-	}	
+	}
 	
-	method chocarJugador(){ // anda
-		//if(position == jugador.position()){
-			game.say(self,"te encontre")
-			game.schedule(1000,{game.stop()})
-		//}
+	method chocarJugador(){
+			game.say(self,"al lobby")
+			morir.play()
+			game.schedule(2000,{game.stop()})
 		
 	}		
 	
@@ -44,15 +40,12 @@ class EnemigoHorizontal {
 
 class EnemigoVertical {
 	//que cuando lo toque haga el oof de roblox y pierda
-	var property position = game.at(5,5)
+	var property position 
 	var contadorPosicion = 0 //no la pongo adentro del metodo pq sino cada vez que lo llamo arranca en 0
 	var limite
+	var morir = game.sound("oof.mp3")
+
 	method image() = "enemigo.png"
-	
-	//method chocarJugador(){
-		//game.sound("oof.wav")
-		//game.say(self,"a casa malo")
-		//game.schedule(2000,{game.stop()}) //si choca se cierra el juego a los 2 segundos
 	
 	method esAtravesable() = true
 	
@@ -73,30 +66,11 @@ class EnemigoVertical {
 		}
 	}	
 	
-	method chocarJugador(){ // anda
-		if(position == jugador.position()){
-			game.say(self,"te encontre")
-			game.schedule(1000,{game.stop()})
-		}
+	method chocarJugador(){
+			morir.play()
+			game.say(self,"al lobby")
+			game.schedule(2000,{game.stop()})
 		
 	}		
 	
 }
-
-//var enemigo1 = new EnemigoHorizontal(
-	//position = game.at(6,7)
-
-	
-//)
-	
-	
-
-
-
-
-
-
-
-
-
-
