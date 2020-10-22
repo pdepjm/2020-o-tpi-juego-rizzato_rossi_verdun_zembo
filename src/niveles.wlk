@@ -50,7 +50,6 @@ object nivel1 inherits Nivel{
 		limite = 6,
 		position = game.at(22,4)
 	)
-	
 	const puertaLvl1 = new Puerta(siguienteNivel = nivel2, position = game.at(25,1))
 	
 	override method iniciar(){

@@ -4,6 +4,6 @@ import menuPrincipal.*
 
 program game {
 	menu.pantallaDeInicio()
-	game.boardGround("suelo.jpg")
+	//game.boardGround("suelo.jpg")
 	game.start()
 }
