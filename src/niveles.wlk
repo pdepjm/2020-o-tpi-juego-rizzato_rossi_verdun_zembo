@@ -50,7 +50,12 @@ object nivel1 inherits Nivel{
 		limite = 6,
 		position = game.at(22,4)
 	)
-	const puertaLvl1 = new Puerta(siguienteNivel = nivel2, position = game.at(25,1))
+	
+	const pasaporte1 = new Pasaporte(
+		position = game.at(16,2),
+		fueEncontrado = false
+	)
+	const puertaLvl1 = new Puerta(siguienteNivel = nivel2, position = game.at(25,1),pasaporteActual = pasaporte1)
 	
 	override method iniciar(){
 		game.clear()
@@ -65,7 +70,7 @@ object nivel1 inherits Nivel{
 		game.addVisual(enemigo6)
 		game.addVisual(enemigo7)
 		game.addVisual(enemigo8)
-		game.addVisual(pasaporte)
+		game.addVisual(pasaporte1)
 		game.onTick(1000,"moverse",{enemigo1.moverse()})
 		game.onTick(1000,"moverse",{enemigo2.moverse()})
 		game.onTick(1000,"moverse",{enemigo3.moverse()})
@@ -134,11 +139,12 @@ object nivel2 inherits Nivel{
 		position = game.at(1,10)
 	)
 	
-	const puerta2 = new Puerta(
-	position = game.at(20,21),
-	siguienteNivel = nivel3
-    )
-        
+    const pasaporte2 = new Pasaporte(
+    position = game.at(7,15),
+    fueEncontrado = false
+    )        
+	const puerta2 = new Puerta(position = game.at(20,21),siguienteNivel = nivel3, pasaporteActual = pasaporte2)  
+	    
 	override method iniciar(){
 		game.clear()
 		muro.generarParedes()
@@ -156,6 +162,7 @@ object nivel2 inherits Nivel{
 		game.addVisual(enemigo10)
 		//game.addVisual(enemigo11)
 		game.addVisual(enemigo12)
+		game.addVisual(pasaporte2)
 		game.onTick(600,"moverse",{enemigo1.moverse()})
 		game.onTick(500,"moverse",{enemigo2.moverse()})
 		game.onTick(1000,"moverse",{enemigo3.moverse()})

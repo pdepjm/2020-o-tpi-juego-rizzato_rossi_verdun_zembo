@@ -6,7 +6,7 @@ import pasaporte.*
 class Puerta {
 	var property siguienteNivel 
 	var property position
-	
+	var pasaporteActual
 	method image() = "puerta.png"
 	
 	method esAtravesable() = true
@@ -16,7 +16,7 @@ class Puerta {
 	//method siguienteNivel() = siguienteNivel
 	
 	method chocarJugador(){
-		if(pasaporte.fueEncontrado()){
+		if(pasaporteActual.fueEncontrado()){
 		game.say(self,"Ganaste breoh")
 		game.clear()
 		self.siguienteNivel().iniciar()

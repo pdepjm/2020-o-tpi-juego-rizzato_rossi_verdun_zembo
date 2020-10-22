@@ -1,9 +1,9 @@
 import wollok.game.*
 import jugador.*
 
-object pasaporte {
-	var property position = game.at(16,2)
-	var property fueEncontrado = false
+class Pasaporte {
+	var property position 
+	var property fueEncontrado
 	
 	method esAtravesable() = true
 	
