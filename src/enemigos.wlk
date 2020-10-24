@@ -7,7 +7,6 @@ class EnemigoHorizontal {
 	var property position 
 	var contadorPosicion = 0 //no la pongo adentro del metodo pq sino cada vez que lo llamo arranca en 0
 	var limite 
-	var morir = game.sound("oof.mp3")
 	
 	method image() = "enemigo.png"
 		
@@ -31,7 +30,9 @@ class EnemigoHorizontal {
 	
 	method chocarJugador(){
 			game.say(self,"al lobby")
-			game.schedule(1000,{jugador.perderVida()})
+			game.sound("oof.mp3").play()
+			game.schedule(300,{jugador.perderVida()})
+			game.schedule(300,{nivel1.iniciar()})
 		
 	}		
 	
@@ -42,7 +43,6 @@ class EnemigoVertical {
 	var property position 
 	var contadorPosicion = 0 //no la pongo adentro del metodo pq sino cada vez que lo llamo arranca en 0
 	var limite
-	var morir = game.sound("oof.mp3")
 
 	method image() = "enemigo.png"
 	
@@ -67,7 +67,9 @@ class EnemigoVertical {
 	
 	method chocarJugador(){
 			game.say(self,"al lobby")
-			game.schedule(2000,{jugador.perderVida()})
+			game.sound("oof.mp3").play()
+			game.schedule(300,{jugador.perderVida()})
+			game.schedule(300,{nivel1.iniciar()})
 		
 	}		
 	

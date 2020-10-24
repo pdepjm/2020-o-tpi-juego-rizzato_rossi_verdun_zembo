@@ -5,13 +5,13 @@ object energia{
 	const property position = game.at(4,29)
 	
 	method image(){
-		if(jugador.energia() <= 100 and jugador.energia() > 75){
+		if(jugador.energiaJugador() <= 100 and jugador.energiaJugador() > 75){
 			return "energiaEntera.png"
-		}else if(jugador.energia() <= 75 and jugador.energia() >50){
+		}else if(jugador.energiaJugador() <= 75 and jugador.energiaJugador() >50){
 			return "energia75.png"
-		}else if(jugador.energia() <= 50 and jugador.energia() >25){
+		}else if(jugador.energiaJugador() <= 50 and jugador.energiaJugador() >25){
 			return "energiaMitad.png"
-		}else if(jugador.energia() <= 25 and jugador.energia() > 0){
+		}else if(jugador.energiaJugador() <= 25 and jugador.energiaJugador() > 0){
 			return "energia25.png"
 		}else{
 			return "energiaVacia.png"

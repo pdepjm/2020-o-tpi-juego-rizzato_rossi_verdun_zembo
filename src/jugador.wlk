@@ -5,15 +5,21 @@ import energia.*
 object jugador {
 	
 	var property position = game.at(2,2)
-	var property direccion
+	var orientacion = derecha
 	var property vidas = 3
-	var property energia = 100
+	var property energiaJugador = 100
+	var image = "jugadorDer.png"
 
-	method image() = "jugador.png"
+	method image() = orientacion.imagenDelJugador()
+	
+	method actualizarImagen(){
+		image = orientacion.imagenDelJugador()
+	}
 	
 	method perderVida(){
 		self.volverAInicio()
 		vidas -= 1
+		self.energiaJugador(100)
 		if(vidas == 0){
 			game.stop()
 		}
@@ -21,27 +27,30 @@ object jugador {
 	}
 	
 	method perderEnergia(){
-		energia -= 1
-		if(energia == 0){
+		energiaJugador -= 1
+		if(energiaJugador == 0){
 			game.say(self,"a mimir")
 			game.schedule(2000,game.stop())
 		}
 	}
 	
 	method ganarEnergia(energiaGanada){
-		energia += energiaGanada
+		energiaJugador += energiaGanada
 	}
 	
 	method volverAInicio(){
 		position = game.at(2,2)
 	}
 
-	method puedeMoverse(orientacion){
-		return game.getObjectsIn(orientacion.posicionEnEsaDireccion()).all {unObj => unObj.esAtravesable()}
+	method puedeMoverse(unaOrientacion){
+		return game.getObjectsIn(unaOrientacion.posicionEnEsaDireccion()).all {unObj => unObj.esAtravesable()}
 	}
 	
-	method mover(posicion , orientacion){
-		if(self.puedeMoverse(orientacion)){
+	method mover(posicion , unaOrientacion){
+		orientacion = unaOrientacion
+		self.actualizarImagen()
+		
+		if(self.puedeMoverse(unaOrientacion)){
 			position = posicion
 			self.perderEnergia()
 			return position
@@ -55,18 +64,22 @@ object jugador {
 
 object arriba {
   method posicionEnEsaDireccion() = jugador.position().up(1)
+  method imagenDelJugador() = "jugadorDer.png"
 }
 
 object abajo {
   method posicionEnEsaDireccion() = jugador.position().down(1)
+  method imagenDelJugador() = "jugadorDer.png"
 }
 
 object izquierda {
   method posicionEnEsaDireccion() = jugador.position().left(1)
+  method imagenDelJugador() = "jugadorIzq.png"
 }
 
 object derecha {
   method posicionEnEsaDireccion() = jugador.position().right(1)
+  method imagenDelJugador() = "jugadorDer.png"
 }
 
 object corazon{

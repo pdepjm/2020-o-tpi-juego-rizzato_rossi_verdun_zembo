@@ -85,6 +85,7 @@ object nivel1 inherits Nivel{
 		game.addVisual(enemigo7)
 		game.addVisual(enemigo8)
 		game.addVisual(pasaporte1)
+		game.addVisual(jugador)
 		game.onTick(1000,"moverse",{enemigo1.moverse()})
 		game.onTick(1000,"moverse",{enemigo2.moverse()})
 		game.onTick(1000,"moverse",{enemigo3.moverse()})
@@ -93,7 +94,6 @@ object nivel1 inherits Nivel{
 		game.onTick(700,"moverse",{enemigo6.moverse()})
 		game.onTick(300,"moverse",{enemigo7.moverse()})
 		game.onTick(300,"moverse",{enemigo8.moverse()})
-		game.addVisual(jugador)
 		config.configColisiones()
 		config.teclasJugador()
 		
@@ -161,7 +161,7 @@ object nivel2 inherits Nivel{
 	    
 	override method iniciar(){
 		game.clear()
-		jugador.energia(100)
+		jugador.energiaJugador(100)
 		muro.generarParedes()
 		muroslvl2.generarParedes()
 		super()
