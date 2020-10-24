@@ -31,7 +31,6 @@ class EnemigoHorizontal {
 	
 	method chocarJugador(){
 			game.say(self,"al lobby")
-			morir.play()
 			game.schedule(1000,{jugador.perderVida()})
 		
 	}		
@@ -67,7 +66,6 @@ class EnemigoVertical {
 	}	
 	
 	method chocarJugador(){
-			morir.play()
 			game.say(self,"al lobby")
 			game.schedule(2000,{jugador.perderVida()})
 		

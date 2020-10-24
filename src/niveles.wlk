@@ -5,12 +5,15 @@ import configTeclas.*
 import puertas.*
 import pasaporte.*
 import muros.*
+import energia.*
+
 
 class Nivel {
 	var siguienteNivel
 		
 	method iniciar(){
 		game.addVisual(corazon)
+		game.addVisual(energia)
 	}
 }
 
@@ -57,13 +60,21 @@ object nivel1 inherits Nivel{
 		position = game.at(16,2),
 		fueEncontrado = false
 	)
-	const puertaLvl1 = new Puerta(siguienteNivel = nivel2, position = game.at(25,1),pasaporteActual = pasaporte1)
+	const puertaLvl1 = new Puerta(siguienteNivel = nivel2,
+		position = game.at(25,3),
+		pasaporteActual = pasaporte1
+	)
+	
+	const chori1 = new Chori(position = game.at(20,5))
+	const chori2 = new Chori(position = game.at(16,20))
 	
 	override method iniciar(){
 		game.clear()
 		muro.generarParedes()
 		muroslvl1.generarParedes()
 		super()
+		game.addVisual(chori1)
+		game.addVisual(chori2)
 		game.addVisual(puertaLvl1)
 		game.addVisual(enemigo1)
 		game.addVisual(enemigo2)
@@ -150,9 +161,10 @@ object nivel2 inherits Nivel{
 	    
 	override method iniciar(){
 		game.clear()
-		super()
+		jugador.energia(100)
 		muro.generarParedes()
 		muroslvl2.generarParedes()
+		super()
 		game.addVisual(puerta2)
 		game.addVisual(enemigo1)
 		game.addVisual(enemigo2)
