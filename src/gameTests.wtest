@@ -1,0 +1,94 @@
+import configTeclas.*
+import enemigos.*
+import wollok.game.*
+import jugador.*
+import menuPrincipal.*
+import muros.*
+import niveles.*
+import pasaporte.*
+import puertas.*
+
+
+describe "Tests de la vida y energia del jugador"{
+	test "El jugador pierde una vida al colisionar con un enemigo"{ // VER ERROR DEL GAME.SAY Y EL SCHEDULE
+		const enemigo = new EnemigoVertical (limite = 2,position = game.at(2,1))
+		jugador.volverAInicio()
+		enemigo.moverse()
+		enemigo.chocarJugador()
+		assert.equals(2,jugador.vidas()) // para que ande sacar el jugador.perderVida() del
+										 // game.schedule sino no pierde vida para el test
+		
+	}
+	test "Un jugador al moverse pierde energia"{ // es un modelo reveer nombres de metodos, 
+		jugador.volverAInicio()                  // variables del jugador (energia) y cuanto pierde
+		jugador.mover(game.at(2,3),arriba)       // de energia por cada paso
+		assert.equals(98,jugador.energia())
+	}
+	
+	test "El jugador al clavarse un chori gana power"{ // same anterior ver como esta definido
+		const choripan = new Chori (position = game.at(5,5),5) // el chori
+		choripan.chocarJugador()
+		assert.equals(100,jugador.energia())
+	}
+}
+
+describe "Tests de las puertas"{
+	test "El jugador no pasa de nivel sin el pasaporte"{ // agregue un true y false en chocarrJugador puerta
+		const pasaporte = new Pasaporte(position = game.at(16,2),fueEncontrado = false)
+		const puerta = new Puerta(siguienteNivel = nivel2, position = game.at(25,1),pasaporteActual = pasaporte)
+		jugador.position(game.at(25,1))
+		assert.notThat(puerta.chocarJugador())
+	}
+	test "El jugador pasa de nivel Si tiene el pasaporte"{
+		const pasaporteTest = new Pasaporte(position = game.at(25,2),fueEncontrado = true)
+		const puertaTest = new Puerta(siguienteNivel = nivel2, position = game.at(25,1),pasaporteActual = pasaporteTest)
+		jugador.position(game.at(25,1))
+		assert.that(puertaTest.chocarJugador())
+	}
+}
+
+
+describe "Tests de los muros"{
+	test "El Jugador no puede atravezar una pared" {
+	
+	muroslvl1.generarParedes()
+	jugador.mover(game.at(3,2),derecha)
+	assert.equals(game.at(2,2),jugador.position())
+
+	}
+}
+
+describe "Tests de movimiento de Enemigos"{
+	
+	test "Un enemigo vertical vuelve a su posicion de inicio"{
+		const enemigo = new EnemigoVertical (limite = 2,position = game.at(2,1))
+		enemigo.moverse()
+		enemigo.moverse()
+		enemigo.moverse()
+		enemigo.moverse()
+		assert.equals(game.at(2,1),enemigo.position())
+	
+	}
+
+	test "Un enemigo horizontal vuelve a su posicion de inicio"{
+		const enemigo = new EnemigoHorizontal (limite = 2,position = game.at(2,1))
+		enemigo.moverse()
+		enemigo.moverse()
+		enemigo.moverse()
+		enemigo.moverse()
+		assert.equals(game.at(2,1),enemigo.position())
+	
+	}
+}
+
+describe "Tests del pasaporte"{
+	test "Un pasaporte fue encontrado"{ // mismo error que perder vida, (tema de game.say)
+		const pasaporte = new Pasaporte (position = game.at(1,1), fueEncontrado = false)
+		//game.addVisual(pasaporte) esto no lo soluciona :(
+		pasaporte.chocarJugador()
+		assert.that(pasaporte.fueEncontrado())
+	}
+}
+
+
+	
