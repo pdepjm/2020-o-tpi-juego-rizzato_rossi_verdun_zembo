@@ -3,10 +3,20 @@ import puertas.*
 
 object jugador {
 	
-	var property position = game.at(2,2) //sin property no se mueve
+	var property position = game.at(2,2)
 	var property direccion
+	var property vidas = 3
 
 	method image() = "jugador.png"
+	
+	method perderVida(){
+		self.volverAInicio()
+		vidas -= 1
+		if(vidas == 0){
+			game.stop()
+		}
+		
+	}
 	
 	method volverAInicio(){
 		position = game.at(2,2)
@@ -43,3 +53,19 @@ object izquierda {
 object derecha {
   method posicionEnEsaDireccion() = jugador.position().right(1)
 }
+
+object corazon{
+	const property position = game.at(1,29)
+	
+	method image(){
+		if(jugador.vidas() == 3){
+			return "3Corazones.png"
+		}else if(jugador.vidas() == 2){
+			return "2Corazones.png"
+		}else{
+			return "1Corazon.png"
+		}
+	}
+	
+}
+

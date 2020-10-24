@@ -9,7 +9,9 @@ import muros.*
 class Nivel {
 	var siguienteNivel
 		
-	method iniciar(){}
+	method iniciar(){
+		game.addVisual(corazon)
+	}
 }
 
 
@@ -61,6 +63,7 @@ object nivel1 inherits Nivel{
 		game.clear()
 		muro.generarParedes()
 		muroslvl1.generarParedes()
+		super()
 		game.addVisual(puertaLvl1)
 		game.addVisual(enemigo1)
 		game.addVisual(enemigo2)
@@ -147,6 +150,7 @@ object nivel2 inherits Nivel{
 	    
 	override method iniciar(){
 		game.clear()
+		super()
 		muro.generarParedes()
 		muroslvl2.generarParedes()
 		game.addVisual(puerta2)
