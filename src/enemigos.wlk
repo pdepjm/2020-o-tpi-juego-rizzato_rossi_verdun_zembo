@@ -8,7 +8,7 @@ class EnemigoHorizontal {
 	var contadorPosicion = 0 //no la pongo adentro del metodo pq sino cada vez que lo llamo arranca en 0
 	var limite 
 	
-	method image() = "enemigo.png"
+	method image() = "enemigoH.png"
 		
 	method esAtravesable() = true
 	
@@ -44,7 +44,7 @@ class EnemigoVertical {
 	var contadorPosicion = 0 //no la pongo adentro del metodo pq sino cada vez que lo llamo arranca en 0
 	var limite
 
-	method image() = "enemigo.png"
+	method image() = "enemigoV.png"
 	
 	method esAtravesable() = true
 	

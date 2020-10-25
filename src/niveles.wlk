@@ -66,7 +66,7 @@ object nivel1 inherits Nivel{
 	)
 	
 	const chori1 = new Chori(position = game.at(20,5))
-	const chori2 = new Chori(position = game.at(16,20))
+	const chori2 = new Chori(position = game.at(16,24))
 	
 	override method iniciar(){
 		game.clear()
