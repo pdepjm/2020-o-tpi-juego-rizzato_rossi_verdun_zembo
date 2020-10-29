@@ -2,11 +2,20 @@ import wollok.game.*
 import niveles.*
 import jugador.*
 
-class EnemigoHorizontal {
-	//que cuando lo toque haga el oof de roblox y pierda
+
+class Enemigo{
 	var property position 
 	var contadorPosicion = 0 //no la pongo adentro del metodo pq sino cada vez que lo llamo arranca en 0
 	var limite 
+	
+	method chocarJugador(){
+			game.say(self,"al lobby")
+			game.sound("oof.mp3").play()
+			game.schedule(300,{jugador.perderVida()})
+			game.schedule(300,{jugador.volverAInicio()})	
+	}		
+}
+class EnemigoHorizontal inherits Enemigo{
 	
 	method image() = "enemigoH.png"
 		
@@ -27,22 +36,9 @@ class EnemigoHorizontal {
 				
 		}
 	}
-	
-	method chocarJugador(){
-			game.say(self,"al lobby")
-			game.sound("oof.mp3").play()
-			game.schedule(300,{jugador.perderVida()})
-			game.schedule(300,{jugador.volverAInicio()})
-		
-	}		
-	
 }
 
-class EnemigoVertical {
-	//que cuando lo toque haga el oof de roblox y pierda
-	var property position 
-	var contadorPosicion = 0 //no la pongo adentro del metodo pq sino cada vez que lo llamo arranca en 0
-	var limite
+class EnemigoVertical inherits Enemigo{
 
 	method image() = "enemigoV.png"
 	
@@ -64,13 +60,4 @@ class EnemigoVertical {
 				
 		}
 	}	
-	
-	method chocarJugador(){
-			game.say(self,"al lobby")
-			game.sound("oof.mp3").play()
-			game.schedule(300,{jugador.perderVida()})
-			game.schedule(300,{jugador.volverAInicio()})
-		
-	}		
-	
 }
