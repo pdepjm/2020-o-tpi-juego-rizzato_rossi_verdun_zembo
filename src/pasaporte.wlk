@@ -3,7 +3,7 @@ import jugador.*
 
 class Pasaporte {
 	var property position 
-	var property fueEncontrado
+	var property fueEncontrado = false
 	
 	method esAtravesable() = true
 	

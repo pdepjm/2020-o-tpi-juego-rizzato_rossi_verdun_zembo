@@ -9,7 +9,7 @@ object menu {
 		game.width(30)
 		game.height(30)
 		game.ground("suelo.jpg")
-		//game.boardGround("menuPrincipal.png")
+		game.addVisual(imagenMenu)
 		
 		//COMENZAR JUEGO
 		keyboard.c().onPressDo{nivel1.iniciar()} //no cierra con f y no mueve el jugador
@@ -22,6 +22,22 @@ object menu {
 		
 		
 	}
+	
+}
+
+object imagenMenu{
+	
+	method position() = game.at(0,0)
+	
+	method image() = "menuPrincipal.png"
+	
+}
+
+object final{
+	method position() = game.at(0,0)
+	
+	method image() = "goodEnding.png"
+	
 	
 }
 

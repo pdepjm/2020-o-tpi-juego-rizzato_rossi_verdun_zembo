@@ -1,6 +1,7 @@
 import wollok.game.*
-import puertas.*
+import avion.*
 import energia.*
+import niveles.*
 
 object jugador {
 	
@@ -21,9 +22,8 @@ object jugador {
 		vidas -= 1
 		self.energiaJugador(100)
 		if(vidas == 0){
-			game.stop()
-		}
-		
+			gameOver.iniciar()
+		}	
 	}
 	
 	method perderEnergia(){
@@ -95,4 +95,11 @@ object corazon{
 		}
 	}
 	
+}
+
+object badEnding{
+	
+	method position() = game.at(0,0)
+	
+	method image() = "badEnding.png"
 }

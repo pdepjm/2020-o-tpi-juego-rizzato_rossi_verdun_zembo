@@ -3,11 +3,11 @@ import jugador.*
 import niveles.*
 import pasaporte.*
 
-class Puerta {
+class Avion{
 	var property siguienteNivel 
 	var property position
 	var pasaporteActual
-	method image() = "puerta.png"
+	method image() = "avion.png"
 	
 	method esAtravesable() = true
 	
@@ -25,6 +25,3 @@ class Puerta {
 	}
 	
 }
-
-
-
