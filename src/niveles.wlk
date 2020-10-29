@@ -246,10 +246,8 @@ object nivel2 inherits Nivel{
 		game.addVisual(enemigo3)
 		game.addVisual(enemigo4)
 		game.addVisual(enemigo5)
-		game.addVisual(enemigo5)
 		game.addVisual(enemigo6)
 		game.addVisual(enemigo7)
-		game.addVisual(enemigo8)
 		game.addVisual(enemigo8)
 		game.addVisual(enemigo9)
 		game.addVisual(enemigo10)
@@ -272,7 +270,7 @@ object nivel2 inherits Nivel{
 		game.addVisual(chori3)
 		game.addVisual(avionLvl2)
 		game.addVisual(pasaporteLvl2)
-		game.addVisual(jugador)	
+		game.addVisual(jugador)
 		game.onTick(1500,"moverse",{enemigo1.moverse()})
 		game.onTick(1500,"moverse",{enemigo2.moverse()})
 		game.onTick(1500,"moverse",{enemigo3.moverse()})
@@ -354,10 +352,10 @@ object nivel3 inherits Nivel{
 		position = game.at(1,10)
 	)
 	
-    const pasaporte2 = new Pasaporte(
+    const pasaporte3 = new Pasaporte(
     position = game.at(7,15)
     )        
-	const avion3 = new Avion(position = game.at(20,21),siguienteNivel = lvlFinal, pasaporteActual = pasaporte2)  
+	const avion3 = new Avion(position = game.at(20,21),siguienteNivel = lvlFinal, pasaporteActual = pasaporte3)  
 	    
 	override method iniciar(){
 		game.clear()
@@ -365,6 +363,7 @@ object nivel3 inherits Nivel{
 		muro.generarParedes()
 		muroslvl3.generarParedes()
 		super()
+		game.addVisual(jugador)
 		game.addVisual(avion3)
 		game.addVisual(enemigo1)
 		game.addVisual(enemigo2)
@@ -378,7 +377,7 @@ object nivel3 inherits Nivel{
 		game.addVisual(enemigo10)
 		game.addVisual(enemigo11)
 		game.addVisual(enemigo12)
-		game.addVisual(pasaporte2)
+		game.addVisual(pasaporte3)
 		game.onTick(600,"moverse",{enemigo1.moverse()})
 		game.onTick(500,"moverse",{enemigo2.moverse()})
 		game.onTick(1000,"moverse",{enemigo3.moverse()})
@@ -390,9 +389,6 @@ object nivel3 inherits Nivel{
 		game.onTick(200,"moverse",{enemigo9.moverse()})
 		game.onTick(500,"moverse",{enemigo10.moverse()})
 		game.onTick(500,"moverse",{enemigo11.moverse()})
-		game.addVisualIn(jugador, game.at(2,2))
-		jugador.volverAInicio()
-		game.addVisual(jugador)
 		config.configColisiones()
 		config.teclasJugador()
 		

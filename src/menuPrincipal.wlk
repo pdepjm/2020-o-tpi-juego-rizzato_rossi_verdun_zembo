@@ -17,6 +17,8 @@ object menu {
 		//SOLO TEST PARA IR DERECHO AL LVL 2
 		keyboard.m().onPressDo{nivel2.iniciar()}
 		
+		keyboard.n().onPressDo{nivel3.iniciar()}
+		
 		//SALIR DEL JUEGO
 		keyboard.f().onPressDo{game.stop()} //anda 
 		

@@ -30,7 +30,7 @@ object jugador {
 		energiaJugador -= 1
 		if(energiaJugador == 0){
 			game.say(self,"a mimir")
-			game.schedule(2000,game.stop())
+			gameOver.iniciar()
 		}
 	}
 	
