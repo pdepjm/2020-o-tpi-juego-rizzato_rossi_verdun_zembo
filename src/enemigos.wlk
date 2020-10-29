@@ -32,7 +32,7 @@ class EnemigoHorizontal {
 			game.say(self,"al lobby")
 			game.sound("oof.mp3").play()
 			game.schedule(300,{jugador.perderVida()})
-			game.schedule(300,{nivel1.iniciar()})
+			game.schedule(300,{jugador.volverAInicio()})
 		
 	}		
 	
@@ -69,7 +69,7 @@ class EnemigoVertical {
 			game.say(self,"al lobby")
 			game.sound("oof.mp3").play()
 			game.schedule(300,{jugador.perderVida()})
-			game.schedule(300,{nivel1.iniciar()})
+			game.schedule(300,{jugador.volverAInicio()})
 		
 	}		
 	

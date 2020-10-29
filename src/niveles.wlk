@@ -15,6 +15,7 @@ class Nivel {
 	method iniciar(){
 		game.addVisual(corazon)
 		game.addVisual(energia)
+		jugador.setearNivel(self)
 	}
 }
 
@@ -139,7 +140,7 @@ object nivel2 inherits Nivel{
 	)
 	
 	const enemigo8 = new EnemigoHorizontal(
-		limite =3,
+		limite =2,
 		position = game.at(26,12)
 	)
 	
@@ -184,8 +185,8 @@ object nivel2 inherits Nivel{
 	)
 	
 	const enemigo17 = new EnemigoVertical(
-		limite =3,
-		position = game.at(24,28)
+		limite = 3,
+		position = game.at(24,25)
 	)
 	
 	const enemigo18 = new EnemigoVertical(
@@ -234,7 +235,7 @@ object nivel2 inherits Nivel{
 	
 	const chori1 = new Chori(position = game.at(28,4))
 	const chori2 = new Chori(position = game.at(3,16))
-	const chori3 = new Chori(position = game.at(27,10))
+	const chori3 = new Chori(position = game.at(27,11))
 	
 	override method iniciar(){
 		game.clear()
@@ -356,7 +357,12 @@ object nivel3 inherits Nivel{
     position = game.at(7,15)
     )        
 	const avion3 = new Avion(position = game.at(20,21),siguienteNivel = lvlFinal, pasaporteActual = pasaporte3)  
-	    
+	const chori1 = new Chori(position = game.at(10,4))
+	const chori2 = new Chori(position = game.at(20,16))
+	const chori3 = new Chori(position = game.at(21,10))
+	const chori4 = new Chori(position = game.at(7,16))
+	const chori5 = new Chori(position = game.at(12,28))	
+	
 	override method iniciar(){
 		game.clear()
 		jugador.energiaJugador(100)
@@ -378,6 +384,11 @@ object nivel3 inherits Nivel{
 		game.addVisual(enemigo11)
 		game.addVisual(enemigo12)
 		game.addVisual(pasaporte3)
+		game.addVisual(chori1)
+		game.addVisual(chori2)
+		game.addVisual(chori3)
+		game.addVisual(chori4)
+		game.addVisual(chori5)
 		game.onTick(600,"moverse",{enemigo1.moverse()})
 		game.onTick(500,"moverse",{enemigo2.moverse()})
 		game.onTick(1000,"moverse",{enemigo3.moverse()})
@@ -389,6 +400,7 @@ object nivel3 inherits Nivel{
 		game.onTick(200,"moverse",{enemigo9.moverse()})
 		game.onTick(500,"moverse",{enemigo10.moverse()})
 		game.onTick(500,"moverse",{enemigo11.moverse()})
+		game.onTick(1000,"moverse",{enemigo12.moverse()})
 		config.configColisiones()
 		config.teclasJugador()
 		
@@ -404,7 +416,6 @@ object lvlFinal inherits Nivel{
 	}
 	
 }
-
 
 object gameOver inherits Nivel{
 	override method iniciar(){

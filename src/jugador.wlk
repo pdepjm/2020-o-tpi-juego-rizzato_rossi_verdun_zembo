@@ -10,6 +10,7 @@ object jugador {
 	var property vidas = 3
 	var property energiaJugador = 100
 	var image = "jugadorDer.png"
+	var nivelActual
 
 	method image() = orientacion.imagenDelJugador()
 	
@@ -34,12 +35,17 @@ object jugador {
 		}
 	}
 	
+	method setearNivel(nivel){
+		nivelActual = nivel
+	}
+	
 	method ganarEnergia(energiaGanada){
 		energiaJugador += energiaGanada
 	}
 	
 	method volverAInicio(){
 		position = game.at(2,2)
+		nivelActual.iniciar()
 	}
 
 	method puedeMoverse(unaOrientacion){
