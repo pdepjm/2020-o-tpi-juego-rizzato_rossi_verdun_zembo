@@ -425,6 +425,7 @@ object gameOver inherits Nivel{
 	override method iniciar(){
 		game.clear()
 		game.addVisual(badEnding)
-		game.schedule(5000,{game.stop()})
+		game.sound("sadness.mp3").play()
+		game.schedule(6000,{game.stop()})
 	}
 }
