@@ -42,7 +42,7 @@ object jugador {
 	
 	method ganarEnergia(energiaGanada){
 		const nuevaEnergia = energiaJugador + energiaGanada
-		100.min(nuevaEnergia)
+		energiaJugador = 100.min(nuevaEnergia)
 	}
 	
 	method volverAInicio(){

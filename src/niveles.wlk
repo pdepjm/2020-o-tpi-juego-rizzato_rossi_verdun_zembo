@@ -65,6 +65,8 @@ object nivel1 inherits Nivel{
 	
 	const chori1 = new Chori(position = game.at(20,5))
 	const chori2 = new Chori(position = game.at(16,24))
+	const chori3 = new Chori(position = game.at(24,5))
+	const chori4 = new Chori(position = game.at(9,10))
 	
 	override method iniciar(){
 		game.clear()
@@ -73,6 +75,8 @@ object nivel1 inherits Nivel{
 		super()
 		game.addVisual(chori1)
 		game.addVisual(chori2)
+		game.addVisual(chori3)
+		game.addVisual(chori4)
 		game.addVisual(avionLvl1)
 		game.addVisual(enemigo1)
 		game.addVisual(enemigo2)
