@@ -26,6 +26,8 @@ class Chori {
 	method image() = "chori.png"
 	method esAtravesable() = true
 	
+	method energiaQueDa() = energiaQueDa
+	
 	method chocarJugador(){
 		game.removeVisual(self)
 		game.say(jugador,"buenardino rivadavia")

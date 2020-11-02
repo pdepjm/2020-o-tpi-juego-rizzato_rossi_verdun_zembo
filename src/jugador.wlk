@@ -17,6 +17,8 @@ object jugador {
 		image = orientacion.imagenDelJugador()
 	}
 	
+	method nivelActual() = nivelActual
+	
 	method perderVida(){
 		self.volverAInicio()
 		vidas -= 1
@@ -39,7 +41,8 @@ object jugador {
 	}
 	
 	method ganarEnergia(energiaGanada){
-		energiaJugador += energiaGanada
+		var nuevaEnergia = energiaJugador + energiaGanada
+		100.min(nuevaEnergia)
 	}
 	
 	method volverAInicio(){

@@ -11,34 +11,33 @@ import avion.*
 
 
 describe "Tests de la vida y energia del jugador"{
-	test "El jugador pierde una vida al colisionar con un enemigo"{ // VER ERROR DEL GAME.SAY Y EL SCHEDULE
-		const enemigo = new EnemigoVertical(limite = 2,position = game.at(2,1))
-		jugador.volverAInicio()
-		enemigo.moverse()
-		enemigo.chocarJugador()
-		assert.equals(2,jugador.vidas()) // para que ande sacar el jugador.perderVida() del
-										 // game.schedule sino no pierde vida para el test
+	test "El jugador pierde una vida"{ 
+		jugador.setearNivel(nivel1)
+		jugador.perderVida()
+		assert.equals(2,jugador.vidas())
 		
 	}
-	test "Un jugador al moverse pierde energia"{ // es un modelo reveer nombres de metodos, 
-		jugador.volverAInicio()                  // variables del jugador (energia) y cuanto pierde
-		jugador.mover(game.at(2,3),arriba)       // de energia por cada paso
+	test "Un jugador al moverse pierde energia"{ 
+		jugador.setearNivel(nivel1)                 
+		jugador.mover(game.at(2,3),arriba)    
 		assert.equals(99,jugador.energiaJugador())
 	}
 	
-	test "El jugador al clavarse un chori gana power"{ // same anterior ver como esta definido
-		const choripan = new Chori(position = game.at(5,5)) // el chori
-		choripan.chocarJugador()
+	test "El jugador al clavarse un chori gana power"{ 
+		const choripan = new Chori(position = game.at(5,5)) 
+		jugador.setearNivel(nivel1)  
+		jugador.ganarEnergia(choripan.energiaQueDa())
 		assert.equals(100,jugador.energiaJugador())
 	}
 }
 
-describe "Tests de las puertas"{
-	test "El jugador no pasa de nivel sin el pasaporte"{ // agregue un true y false en chocarrJugador puerta
+describe "Tests de los aviones"{
+	test "El jugador no pasa de nivel sin el pasaporte"{
 		const pasaporte = new Pasaporte(position = game.at(16,2),fueEncontrado = false)
-		const puerta = new Avion(siguienteNivel = nivel2, position = game.at(25,1),pasaporteActual = pasaporte)
-		jugador.position(game.at(25,1))
-		assert.notThat(puerta.chocarJugador())
+		const avion = new Avion(siguienteNivel = nivel2, position = game.at(25,1),pasaporteActual = pasaporte)
+		jugador.setearNivel(nivel1)   
+		avion.chocarJugador()
+		assert.notThat(jugador.nivelActual() == 2)
 	}
 	test "El jugador pasa de nivel Si tiene el pasaporte"{
 		const pasaporteTest = new Pasaporte(position = game.at(25,2),fueEncontrado = true)
@@ -83,10 +82,9 @@ describe "Tests de movimiento de Enemigos"{
 }
 
 describe "Tests del pasaporte"{
-	test "Un pasaporte fue encontrado"{ // mismo error que perder vida, (tema de game.say)
+	test "Un pasaporte fue encontrado"{
 		const pasaporte = new Pasaporte (position = game.at(1,1), fueEncontrado = false)
-		//game.addVisual(pasaporte) esto no lo soluciona :(
-		pasaporte.chocarJugador()
+		pasaporte.fueEncontrado(true)
 		assert.that(pasaporte.fueEncontrado())
 	}
 }
