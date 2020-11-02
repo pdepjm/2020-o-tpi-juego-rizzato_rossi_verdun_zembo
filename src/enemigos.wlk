@@ -13,13 +13,13 @@ class Enemigo{
 			game.sound("oof.mp3").play()
 			game.schedule(300,{jugador.perderVida()})
 			game.schedule(300,{jugador.volverAInicio()})	
-	}		
+	}	
+	
+	method esAtravesable() = true	
 }
 class EnemigoHorizontal inherits Enemigo{
 	
 	method image() = "enemigoH.png"
-		
-	method esAtravesable() = true
 	
 	method moverse(){
 		if(contadorPosicion < limite){
@@ -41,8 +41,6 @@ class EnemigoHorizontal inherits Enemigo{
 class EnemigoVertical inherits Enemigo{
 
 	method image() = "enemigoV.png"
-	
-	method esAtravesable() = true
 	
 	method moverse(){// anda
 		if(contadorPosicion < limite){
