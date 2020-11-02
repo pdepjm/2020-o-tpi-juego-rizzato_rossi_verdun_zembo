@@ -33,9 +33,5 @@ class Chori {
         game.say(jugador,"buenardino rivadavia")
         jugador.ganarEnergia(energiaQueDa)
     }
-
-
-
-	
 	
 }

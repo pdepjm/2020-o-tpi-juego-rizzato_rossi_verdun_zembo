@@ -12,7 +12,7 @@ object menu {
 		game.addVisual(imagenMenu)
 		
 		//COMENZAR JUEGO
-		keyboard.c().onPressDo{nivel1.iniciar()} //no cierra con f y no mueve el jugador
+		keyboard.c().onPressDo{nivel1.iniciar()}
 		
 		//SOLO TEST PARA IR DERECHO AL LVL 2
 		keyboard.m().onPressDo{nivel2.iniciar()}
@@ -21,8 +21,6 @@ object menu {
 		
 		//SALIR DEL JUEGO
 		keyboard.f().onPressDo{game.stop()} //anda 
-		
-		
 	}
 	
 }
@@ -42,6 +40,3 @@ object final{
 	
 	
 }
-
-
-

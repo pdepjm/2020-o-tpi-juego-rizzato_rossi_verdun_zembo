@@ -13,8 +13,6 @@ class Avion{
 	
 	method posicion() = position
 	
-	//method siguienteNivel() = siguienteNivel
-	
 	method chocarJugador(){
 		if(pasaporteActual.fueEncontrado()){
 		game.say(self,"Ganaste breoh")
