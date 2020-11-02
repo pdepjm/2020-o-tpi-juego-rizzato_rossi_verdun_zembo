@@ -20,19 +20,22 @@ object energia{
 }
 
 class Chori {
-	var property position
-	const energiaQueDa = 25
-	
-	method image() = "chori.png"
-	method esAtravesable() = true
-	
-	method energiaQueDa() = energiaQueDa
-	
-	method chocarJugador(){
-		game.removeVisual(self)
-		game.say(jugador,"buenardino rivadavia")
-		jugador.ganarEnergia(energiaQueDa)
-	}
+    var property position
+    const energiaQueDa = 25
+
+    method image() = "chori.png"
+    method esAtravesable() = true
+
+    method energiaQueDa() = energiaQueDa
+
+    method chocarJugador(){
+        game.removeVisual(self)
+        game.say(jugador,"buenardino rivadavia")
+        jugador.ganarEnergia(energiaQueDa)
+    }
+
+
+
 	
 	
 }
