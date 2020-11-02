@@ -16,8 +16,8 @@ class Avion{
 	method chocarJugador(){
 		if(pasaporteActual.fueEncontrado()){
 		game.clear()
+		jugador.setearNivel(siguienteNivel)
 		self.siguienteNivel().iniciar()
-		
 		}
 	}
 	

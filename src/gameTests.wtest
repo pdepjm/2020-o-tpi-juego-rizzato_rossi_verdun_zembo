@@ -9,7 +9,6 @@ import niveles.*
 import pasaporte.*
 import avion.*
 
-
 describe "Tests de la vida y energia del jugador"{
 	test "El jugador pierde una vida"{ 
 		jugador.setearNivel(nivel1)
@@ -39,18 +38,10 @@ describe "Tests de los aviones"{
 		avion.chocarJugador()
 		assert.notThat(jugador.nivelActual() == 2)
 	}
-	test "El jugador pasa de nivel Si tiene el pasaporte"{
-		const pasaporteTest = new Pasaporte(position = game.at(25,2),fueEncontrado = true)
-		const puertaTest = new Avion(siguienteNivel = nivel2, position = game.at(25,1),pasaporteActual = pasaporteTest)
-		jugador.position(game.at(25,1))
-		assert.that(puertaTest.chocarJugador())
-	}
 }
-
 
 describe "Tests de los muros"{
 	test "El Jugador no puede atravezar una pared" {
-	
 	muroslvl1.generarParedes()
 	jugador.mover(game.at(3,2),derecha)
 	assert.equals(game.at(2,2),jugador.position())
@@ -59,7 +50,6 @@ describe "Tests de los muros"{
 }
 
 describe "Tests de movimiento de Enemigos"{
-	
 	test "Un enemigo vertical vuelve a su posicion de inicio"{
 		const enemigo = new EnemigoVertical (limite = 2,position = game.at(2,1))
 		enemigo.moverse()
@@ -67,7 +57,6 @@ describe "Tests de movimiento de Enemigos"{
 		enemigo.moverse()
 		enemigo.moverse()
 		assert.equals(game.at(2,1),enemigo.position())
-	
 	}
 
 	test "Un enemigo horizontal vuelve a su posicion de inicio"{
@@ -77,7 +66,6 @@ describe "Tests de movimiento de Enemigos"{
 		enemigo.moverse()
 		enemigo.moverse()
 		assert.equals(game.at(2,1),enemigo.position())
-	
 	}
 }
 

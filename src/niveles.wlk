@@ -15,7 +15,6 @@ class Nivel {
 	method iniciar(){
 		game.addVisual(corazon)
 		game.addVisual(energia)
-		jugador.setearNivel(self)
 	}
 }
 
