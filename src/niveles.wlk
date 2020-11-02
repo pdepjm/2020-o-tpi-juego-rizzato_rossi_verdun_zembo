@@ -9,7 +9,9 @@ import muros.*
 import energia.*
 
 
-class Nivel {		
+class Nivel {
+	var siguienteNivel
+		
 	method iniciar(){
 		game.addVisual(corazon)
 		game.addVisual(energia)
@@ -65,8 +67,6 @@ object nivel1 inherits Nivel{
 	
 	const chori1 = new Chori(position = game.at(20,5))
 	const chori2 = new Chori(position = game.at(16,24))
-	const chori3 = new Chori(position = game.at(24,5))
-	const chori4 = new Chori(position = game.at(9,10))
 	
 	override method iniciar(){
 		game.clear()
@@ -75,8 +75,6 @@ object nivel1 inherits Nivel{
 		super()
 		game.addVisual(chori1)
 		game.addVisual(chori2)
-		game.addVisual(chori3)
-		game.addVisual(chori4)
 		game.addVisual(avionLvl1)
 		game.addVisual(enemigo1)
 		game.addVisual(enemigo2)
@@ -132,18 +130,18 @@ object nivel2 inherits Nivel{
 	)
 	
 	const enemigo6 = new EnemigoHorizontal(
-		limite =5,
+		limite =4,
 		position = game.at(24,20)
 	)
 	
 	const enemigo7 = new EnemigoHorizontal(
-		limite =7,
+		limite =6,
 		position = game.at(22,15)
 	)
 	
 	const enemigo8 = new EnemigoHorizontal(
 		limite =2,
-		position = game.at(26,12)
+		position = game.at(26,13)
 	)
 	
 	const enemigo9 = new EnemigoHorizontal(
@@ -157,7 +155,7 @@ object nivel2 inherits Nivel{
 	)
 	
 	const enemigo11 =new EnemigoHorizontal(
-		limite =8,
+		limite =7,
 		position = game.at(1,9)
 	)
 	
@@ -167,38 +165,38 @@ object nivel2 inherits Nivel{
 	)
 	
 	const enemigo13 =new EnemigoHorizontal(
-		limite =4,
+		limite =3,
 		position = game.at(12,8)
 	)
 	
 	const enemigo14 =new EnemigoHorizontal(
-		limite =4,
+		limite =3,
 		position = game.at(21,5)
 	)	
 	
 	const enemigo15 =new EnemigoHorizontal(
-		limite =2,
+		limite =1,
 		position = game.at(26,6)
 	)
 	
 	const enemigo16 = new EnemigoVertical(
-		limite =4,
-		position = game.at(12,24)
+		limite =3,
+		position = game.at(12,21)
 	)
 	
 	const enemigo17 = new EnemigoVertical(
-		limite = 3,
+		limite = 2,
 		position = game.at(24,25)
 	)
 	
 	const enemigo18 = new EnemigoVertical(
 		limite =4,
-		position = game.at(21,19)
+		position = game.at(23,19)
 	)
 	
 	
 	const enemigo19= new EnemigoVertical(
-		limite =4,
+		limite =3,
 		position = game.at(5,14)
 	)
 	
@@ -209,7 +207,7 @@ object nivel2 inherits Nivel{
 	)
 	
 	const enemigo21 = new EnemigoVertical(
-		limite =4,
+		limite =3,
 		position = game.at(4,9)
 	)
 	
@@ -220,12 +218,12 @@ object nivel2 inherits Nivel{
 	
 	const enemigo23 = new EnemigoVertical(
 		limite =4,
-		position = game.at(14,9)
+		position = game.at(14,11)
 	)
 	
 	const enemigo24 = new EnemigoVertical(
 		limite =1,
-		position = game.at(14,2)
+		position = game.at(14,1)
 	)
 	
 	const pasaporteLvl2 = new Pasaporte(position = game.at(8,11))
@@ -273,8 +271,6 @@ object nivel2 inherits Nivel{
 		game.addVisual(chori3)
 		game.addVisual(avionLvl2)
 		game.addVisual(pasaporteLvl2)
-		jugador.energiaJugador(100)
-		jugador.volverAInicio()
 		game.addVisual(jugador)
 		game.onTick(1500,"moverse",{enemigo1.moverse()})
 		game.onTick(1500,"moverse",{enemigo2.moverse()})
@@ -373,8 +369,6 @@ object nivel3 inherits Nivel{
 		muro.generarParedes()
 		muroslvl3.generarParedes()
 		super()
-		jugador.energiaJugador(100)
-		jugador.volverAInicio()
 		game.addVisual(jugador)
 		game.addVisual(avion3)
 		game.addVisual(enemigo1)
@@ -424,10 +418,10 @@ object lvlFinal inherits Nivel{
 }
 
 object gameOver inherits Nivel{
-	override method iniciar(){
-		game.clear()
-		game.addVisual(badEnding)
-		game.sound("sadness.mp3").play()
-		game.schedule(6000,{game.stop()})
-	}
+    override method iniciar(){
+        game.clear()
+        game.addVisual(badEnding)
+        game.sound("sadness.mp3").play()
+        game.schedule(6000,{game.stop()})
+    }
 }
