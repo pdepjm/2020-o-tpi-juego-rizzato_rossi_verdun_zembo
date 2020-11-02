@@ -2,10 +2,9 @@ import wollok.game.*
 import niveles.*
 import jugador.*
 
-
 class Enemigo{
 	var property position 
-	var contadorPosicion = 0 //no la pongo adentro del metodo pq sino cada vez que lo llamo arranca en 0
+	var contadorPosicion = 0 
 	var limite 
 	
 	method chocarJugador(){
@@ -17,6 +16,7 @@ class Enemigo{
 	
 	method esAtravesable() = true	
 }
+
 class EnemigoHorizontal inherits Enemigo{
 	
 	method image() = "enemigoH.png"

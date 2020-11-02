@@ -46,7 +46,6 @@ object jugador {
 
     method volverAInicio(){
         position = game.at(2,2)
-        nivelActual.iniciar()
     }
 
     method puedeMoverse(unaOrientacion){

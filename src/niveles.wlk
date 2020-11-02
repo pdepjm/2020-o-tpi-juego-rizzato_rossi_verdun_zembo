@@ -239,6 +239,7 @@ object nivel2 inherits Nivel{
 	
 	override method iniciar(){
 		game.clear()
+		jugador.energiaJugador(100)
 		muro.generarParedes()
 		muroslvl2.generarParedes()
 		super()
@@ -272,6 +273,7 @@ object nivel2 inherits Nivel{
 		game.addVisual(avionLvl2)
 		game.addVisual(pasaporteLvl2)
 		game.addVisual(jugador)
+		jugador.volverAInicio()
 		game.onTick(1500,"moverse",{enemigo1.moverse()})
 		game.onTick(1500,"moverse",{enemigo2.moverse()})
 		game.onTick(1500,"moverse",{enemigo3.moverse()})
@@ -366,6 +368,7 @@ object nivel3 inherits Nivel{
 	override method iniciar(){
 		game.clear()
 		jugador.energiaJugador(100)
+		jugador.volverAInicio()
 		muro.generarParedes()
 		muroslvl3.generarParedes()
 		super()
