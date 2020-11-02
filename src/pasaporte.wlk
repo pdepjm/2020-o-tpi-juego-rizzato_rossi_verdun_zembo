@@ -10,6 +10,7 @@ class Pasaporte {
 	method image() = "pasaporte.png"
 
 	method chocarJugador(){
+		//game.sound(algun ruidito copado)
 		game.say(jugador,"Me las tomo ndeah")
 		self.fueEncontrado(true)
 		game.removeVisual(self)
