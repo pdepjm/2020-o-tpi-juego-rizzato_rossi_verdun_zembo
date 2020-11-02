@@ -76,6 +76,4 @@ describe "Tests del pasaporte"{
 		assert.that(pasaporte.fueEncontrado())
 	}
 }
-
-
 	
