@@ -4,7 +4,6 @@ import energia.*
 import niveles.*
 
 object jugador {
-	
 	var property position = game.at(2,2)
 	var orientacion = derecha
 	var property vidas = 3
@@ -68,24 +67,29 @@ object jugador {
 	
 }
 
-object arriba {
-  method posicionEnEsaDireccion() = jugador.position().up(1)
-  method imagenDelJugador() = "jugadorDer.png"
+class Orientacion{
+  method posicionEnEsaDireccion() 
+  method imagenDelJugador()
 }
 
-object abajo {
-  method posicionEnEsaDireccion() = jugador.position().down(1)
-  method imagenDelJugador() = "jugadorDer.png"
+object arriba inherits Orientacion {
+  override method posicionEnEsaDireccion() = jugador.position().up(1)
+  override method imagenDelJugador() = "jugadorDer.png"
 }
 
-object izquierda {
-  method posicionEnEsaDireccion() = jugador.position().left(1)
-  method imagenDelJugador() = "jugadorIzq.png"
+object abajo inherits Orientacion{
+  override method posicionEnEsaDireccion() = jugador.position().down(1)
+  override method imagenDelJugador() = "jugadorDer.png"
 }
 
-object derecha {
-  method posicionEnEsaDireccion() = jugador.position().right(1)
-  method imagenDelJugador() = "jugadorDer.png"
+object izquierda inherits Orientacion{
+	override method posicionEnEsaDireccion() = jugador.position().left(1)
+  	override method imagenDelJugador() = "jugadorIzq.png"
+}
+
+object derecha inherits Orientacion {
+  override method posicionEnEsaDireccion() = jugador.position().right(1)
+  override method imagenDelJugador() = "jugadorDer.png"
 }
 
 object corazon{
