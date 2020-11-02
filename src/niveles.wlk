@@ -9,12 +9,11 @@ import muros.*
 import energia.*
 
 
-class Nivel {
-	var siguienteNivel
-		
+class Nivel {		
 	method iniciar(){
 		game.addVisual(corazon)
 		game.addVisual(energia)
+		jugador.setearNivel(self)
 	}
 }
 
