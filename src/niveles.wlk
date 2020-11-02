@@ -86,6 +86,7 @@ object nivel1 inherits Nivel{
 		game.addVisual(enemigo8)
 		game.addVisual(pasaporte1)
 		game.addVisual(jugador)
+		jugador.volverAInicio()
 		game.onTick(1000,"moverse",{enemigo1.moverse()})
 		game.onTick(1000,"moverse",{enemigo2.moverse()})
 		game.onTick(1000,"moverse",{enemigo3.moverse()})

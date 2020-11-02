@@ -20,8 +20,8 @@ object jugador {
     method nivelActual() = nivelActual
 
     method perderVida(){
-        self.volverAInicio()
         vidas -= 1
+        nivelActual.iniciar()
         self.energiaJugador(100)
         if(vidas == 0){
             gameOver.iniciar()
